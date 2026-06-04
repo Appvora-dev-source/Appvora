@@ -33,9 +33,9 @@ model Job {
   salaryMin   Float?
   salaryMax   Float?
   currency    String   @default("GBP")
-  jobType     String?  // full-time, part-time, contract, remote
+  jobType     String?
   category    String?
-  source      String   @default("manual") // manual, api, scrape
+  source      String   @default("manual")
   sourceUrl   String?
   postedAt    DateTime @default(now())
   expiresAt   DateTime?
@@ -56,10 +56,10 @@ model CV {
   fileSize   Int
   encryptedPath String
   encryptionIv String
-  analysisJson String? // JSON string of AI analysis
-  skills     String?  // JSON array of extracted skills
-  experience String?  // JSON of extracted experience
-  education  String?  // JSON of extracted education
+  analysisJson String?
+  skills     String?
+  experience String?
+  education  String?
   uploadedAt DateTime @default(now())
   isActive   Boolean  @default(true)
 
@@ -72,7 +72,7 @@ model Application {
   userId    String
   jobId     String
   cvId      String?
-  status    String   @default("applied") // applied, reviewing, interviewed, offered, rejected, withdrawn
+  status    String   @default("applied")
   notes     String?
   appliedAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -101,16 +101,10 @@ model Payment {
   orderId       String   @unique
   amount        Float
   currency      String   @default("GBP")
-  status        String   // created, approved, completed, failed, refunded
-  paypalResponse String? // JSON of PayPal response
+  status        String
+  paypalResponse String?
   createdAt     DateTime @default(now())
   completedAt   DateTime?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
-/home/engine/.bashrc: line 1: syntax error near unexpected token `('
-/home/engine/.bashrc: line 1: `. /etc/profile.d/workload-containment.shn# ~/.bashrc: executed by bash(1) for non-login shells.'
-/home/engine/.bashrc: line 1: syntax error near unexpected token `('
-/home/engine/.bashrc: line 1: `. /etc/profile.d/workload-containment.shn# ~/.bashrc: executed by bash(1) for non-login shells.'
-/home/engine/.bashrc: line 1: syntax error near unexpected token `('
-/home/engine/.bashrc: line 1: `. /etc/profile.d/workload-containment.shn# ~/.bashrc: executed by bash(1) for non-login shells.'
